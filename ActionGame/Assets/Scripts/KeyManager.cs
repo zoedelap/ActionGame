@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class KeyManager : MonoBehaviour
@@ -10,7 +11,7 @@ public class KeyManager : MonoBehaviour
         if (other.CompareTag("key"))
         {
             print("entered key");
-            Destroy(other);
+            Destroy(other.gameObject);
         }
     }
 }
