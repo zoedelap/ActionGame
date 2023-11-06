@@ -6,6 +6,7 @@ TagManager:
   tags:
   - key
   - exit
+  - Enemy
   layers:
   - Default
   - TransparentFX
