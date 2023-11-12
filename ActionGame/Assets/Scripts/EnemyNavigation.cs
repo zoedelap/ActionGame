@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +15,8 @@ public class EnemyNavigation : MonoBehaviour
     [SerializeField] private float minDist = 1;
     [SerializeField] private float jumpAmount = 5;
 
+    [SerializeField] private float distToGround = .5f;
+
     private void Start()
     {
         enemy = transform.parent.gameObject;
@@ -23,19 +26,27 @@ public class EnemyNavigation : MonoBehaviour
     private void Update()
     {
         Vector3 direction = (target.transform.position - enemy.transform.position).normalized;
-        // enemy.transform.LookAt(target);
 
         if (Vector3.Distance(enemy.transform.position, target.position) >= minDist)
         {
-            Debug.Log("distance: " + Vector3.Distance(enemy.transform.position, target.position) + ", minDistance: " + minDist);
             enemy.transform.position += speed * Time.deltaTime * new Vector3(direction.x, 0, 0);
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
+        if (IsGrounded())
+        {
+            Debug.Log("jumping");
+            enemyRB.AddForce(Vector3.up * jumpAmount, ForceMode.Impulse);
+        } else
+        {
+            Debug.Log("Not grounded, cannot jump");
+        }
+    }
 
-        Debug.Log("jumping (trigger)");
-        enemyRB.AddForce(Vector3.up * jumpAmount, ForceMode.Impulse);
+    private bool IsGrounded()
+    {
+        return Physics.Raycast(transform.position, -Vector3.up, distToGround + 0.1f);
     }
 }
