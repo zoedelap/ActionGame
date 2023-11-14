@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 2f;
     public float jumpForce = 2f;
     public float distanceToCheck = 0.2f;
-    private bool isGrounded;
+    public float distToGround = 0.5f;
     
 
     //player.transform = deltatime * speed
@@ -37,19 +37,16 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //Jumping
-        if ((Input.GetKey("up") || Input.GetKey("w") || Input.GetKeyDown(KeyCode.Space)) && isGrounded)
+        if ((Input.GetKey("up") || Input.GetKey("w") || Input.GetKey(KeyCode.Space)) && IsGrounded())
         {
             //found on Unity's Documentation v.2022.3
             rb.AddForce(transform.up * jumpForce);
         }
-        if (Physics.Raycast(transform.position, Vector3.down, distanceToCheck))
-        {
-            isGrounded = true;
-        }
-        else
-        {
-            isGrounded = false;
-        }
+    }
+
+    private bool IsGrounded()
+    {
+        return Physics.Raycast(transform.position, -Vector3.up, distToGround + 0.1f);
     }
 
     

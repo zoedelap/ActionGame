@@ -564,7 +564,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 2015994518}
   speed: 100
-  jumpForce: 2
+  jumpForce: 5
+  distanceToCheck: 0.2
+  distToGround: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
