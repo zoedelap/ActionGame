@@ -44,7 +44,15 @@ public class EnemySpawner : MonoBehaviour
         enemyGO.transform.position = enemySpawnPoint.position;
         // set target
         EnemyNavigation enemyNavScript = enemyGO.GetComponentInChildren<EnemyNavigation>();
-        if (enemyNavScript != null ) enemyNavScript.target = enemyTarget;
+        if (enemyNavScript != null)
+        {
+            enemyNavScript.target = enemyTarget;
+            Debug.Log("EnemyNavigationScript target set to " + enemyNavScript.target.name);
+        }
+        else
+        {
+            Debug.LogWarning("EnemyNavigationScript not found on prefab!");
+        }
 
         // wait the appropriate delay before spawning again
         Invoke(nameof(SpawnEnemy), spawnRate);
