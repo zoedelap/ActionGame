@@ -25,6 +25,12 @@ public class EnemyNavigation : MonoBehaviour
 
     private void Update()
     {
+        if (target == null)
+        {
+            Debug.LogWarning("Enemy target is null!");
+            return;
+        }
+
         Vector3 direction = (target.transform.position - enemy.transform.position).normalized;
 
         if (Vector3.Distance(enemy.transform.position, target.position) >= minDist)
@@ -35,14 +41,7 @@ public class EnemyNavigation : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (IsGrounded())
-        {
-            Debug.Log("jumping");
-            enemyRB.AddForce(Vector3.up * jumpAmount, ForceMode.Impulse);
-        } else
-        {
-            Debug.Log("Not grounded, cannot jump");
-        }
+        if (IsGrounded()) enemyRB.AddForce(Vector3.up * jumpAmount, ForceMode.Impulse);
     }
 
     private bool IsGrounded()
