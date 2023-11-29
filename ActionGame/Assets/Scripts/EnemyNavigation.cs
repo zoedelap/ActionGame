@@ -25,6 +25,12 @@ public class EnemyNavigation : MonoBehaviour
 
     private void Update()
     {
+        if (target == null)
+        {
+            Debug.LogWarning("Enemy target is null!");
+            return;
+        }
+
         Vector3 direction = (target.transform.position - enemy.transform.position).normalized;
 
         if (Vector3.Distance(enemy.transform.position, target.position) >= minDist)
