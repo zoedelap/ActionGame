@@ -41,14 +41,7 @@ public class EnemyNavigation : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (IsGrounded())
-        {
-            Debug.Log("jumping");
-            enemyRB.AddForce(Vector3.up * jumpAmount, ForceMode.Impulse);
-        } else
-        {
-            Debug.Log("Not grounded, cannot jump");
-        }
+        if (IsGrounded()) enemyRB.AddForce(Vector3.up * jumpAmount, ForceMode.Impulse);
     }
 
     private bool IsGrounded()
