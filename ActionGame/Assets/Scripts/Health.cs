@@ -8,7 +8,7 @@ public class Health : MonoBehaviour
     public int currHealth;
     public int maxHealth;
     public HealthBar healthBar;
-    // Start is called before the first frame update
+
     void Start()
     {
         currHealth = maxHealth;
