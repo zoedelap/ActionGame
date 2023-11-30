@@ -35,7 +35,6 @@ public class PlayerMovement : MonoBehaviour
         // if the animation state says player is not grounded but they actually are
         if (!animatorIsGrounded && IsGrounded())
         {
-            Debug.Log("grounded");
             animatorIsGrounded = true;
             anim.SetBool("IsGrounded", animatorIsGrounded);
         }
@@ -44,9 +43,11 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey("a") || Input.GetKey("left"))
         {
             rb.MovePosition(transform.position + Vector3.left * speed * Time.deltaTime);
+            gameObject.transform.rotation = Quaternion.Euler(0, 180, 0);
         } else if (Input.GetKey("d") || Input.GetKey("right"))
         {
             rb.MovePosition(transform.position + Vector3.right * speed * Time.deltaTime);
+            gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
 
         //Jumping
@@ -54,7 +55,6 @@ public class PlayerMovement : MonoBehaviour
         {
             //found on Unity's Documentation v.2022.3
             rb.AddForce(transform.up * jumpForce);
-            Debug.Log("not grounded");
             // tell the animator that the player is not grounded
             animatorIsGrounded = false;
             anim.SetBool("IsGrounded", animatorIsGrounded);
