@@ -13,6 +13,9 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce = 2f;
     public float distanceToCheck = 0.2f;
     public float distToGround = 0.5f;
+
+    public Animator anim;
+    public bool animatorIsGrounded = true;
     
 
     //player.transform = deltatime * speed
@@ -26,12 +29,22 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // set the speed parameter to the rgidbody's speed
+        anim.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
+
+        // if the animation state says player is not grounded but they actually are
+        if (!animatorIsGrounded && IsGrounded())
+        {
+            Debug.Log("grounded");
+            animatorIsGrounded = true;
+            anim.SetBool("IsGrounded", animatorIsGrounded);
+        }
+
         //Left and Right movement
         if (Input.GetKey("a") || Input.GetKey("left"))
         {
             rb.MovePosition(transform.position + Vector3.left * speed * Time.deltaTime);
-        }
-        if (Input.GetKey("d") || Input.GetKey("right"))
+        } else if (Input.GetKey("d") || Input.GetKey("right"))
         {
             rb.MovePosition(transform.position + Vector3.right * speed * Time.deltaTime);
         }
@@ -41,6 +54,10 @@ public class PlayerMovement : MonoBehaviour
         {
             //found on Unity's Documentation v.2022.3
             rb.AddForce(transform.up * jumpForce);
+            Debug.Log("not grounded");
+            // tell the animator that the player is not grounded
+            animatorIsGrounded = false;
+            anim.SetBool("IsGrounded", animatorIsGrounded);
         }
     }
 
