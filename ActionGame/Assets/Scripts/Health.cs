@@ -14,15 +14,24 @@ public class Health : MonoBehaviour
         currHealth = maxHealth;
     }
     void Update(){
-        if (Input.GetKeyDown(KeyCode.Space))
+        /*if (Input.GetKeyDown(KeyCode.Space))
+        {
+            DamagePlayer(10);
+        }*/
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("collided with object with tag: " + collision.gameObject.tag);
+        if (collision.gameObject.CompareTag("Enemy"))
         {
             DamagePlayer(10);
         }
     }
+
     void DamagePlayer(int dmg)
     {
         currHealth -= dmg;
         healthBar.SetHealth(currHealth);
     }
-    
 }
