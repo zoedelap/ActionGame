@@ -37,6 +37,15 @@ public class EnemyNavigation : MonoBehaviour
         {
             enemy.transform.position += speed * Time.deltaTime * new Vector3(direction.x, 0, 0);
         }
+
+        if (target.position.x < enemy.transform.position.x)
+        {
+            gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+        else
+        {
+            gameObject.transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
     }
 
     private void OnTriggerStay(Collider other)
