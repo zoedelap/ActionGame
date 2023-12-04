@@ -16,7 +16,7 @@ public class KeyManager : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("key"))
+        if (other.CompareTag("Key"))
         {
             print("entered key");
             hasKey = true;
@@ -24,8 +24,9 @@ public class KeyManager : MonoBehaviour
             Destroy(other.gameObject);
         }
 
-        if (other.CompareTag("exit") && hasKey)
+        if (other.CompareTag("Door") && hasKey)
         {
+            other.gameObject.GetComponent<EnemySpawner>().isSpawning = false;
             print("level complete");
         }
     }
