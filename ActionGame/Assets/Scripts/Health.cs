@@ -13,12 +13,6 @@ public class Health : MonoBehaviour
     {
         currHealth = maxHealth;
     }
-    void Update(){
-        /*if (Input.GetKeyDown(KeyCode.Space))
-        {
-            DamagePlayer(10);
-        }*/
-    }
 
     private void OnCollisionEnter(Collision collision)
     {
