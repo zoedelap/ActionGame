@@ -31,7 +31,6 @@ public class MeleeAttackManager : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Return))
         {
-            Debug.Log("Attack button hit");
             Melee(true);
         }
     }

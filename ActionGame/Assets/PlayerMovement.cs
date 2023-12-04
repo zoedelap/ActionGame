@@ -16,6 +16,8 @@ public class PlayerMovement : MonoBehaviour
 
     public Animator anim;
     public bool animatorIsGrounded = true;
+
+    private Vector3 prevPos;
     
 
     //player.transform = deltatime * speed
@@ -24,14 +26,12 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        prevPos = transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        // set the speed parameter to the rgidbody's speed
-        anim.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
-
         // if the animation state says player is not grounded but they actually are
         if (!animatorIsGrounded && IsGrounded())
         {
@@ -44,10 +44,17 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.MovePosition(transform.position + Vector3.left * speed * Time.deltaTime);
             gameObject.transform.rotation = Quaternion.Euler(0, 180, 0);
+
+            anim.SetBool("IsWalking", true);
         } else if (Input.GetKey("d") || Input.GetKey("right"))
         {
             rb.MovePosition(transform.position + Vector3.right * speed * Time.deltaTime);
             gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+
+            anim.SetBool("IsWalking", true);
+        } else
+        {
+            anim.SetBool("IsWalking", false);
         }
 
         //Jumping
