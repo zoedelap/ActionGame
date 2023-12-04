@@ -24,6 +24,7 @@ public class EnemySpawner : MonoBehaviour
                 // restart spawning
                 SpawnEnemy();
             }
+            _isSpawning = value;
         }
     }
 
@@ -57,5 +58,4 @@ public class EnemySpawner : MonoBehaviour
         // wait the appropriate delay before spawning again
         Invoke(nameof(SpawnEnemy), spawnRate);
     }
-
 }
