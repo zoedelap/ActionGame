@@ -843,6 +843,26 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1713459092}
+    - target: {fileID: 2564122445334696236, guid: 948787e677c38bd45be141573d8cbbc8, type: 3}
+      propertyPath: m_Height
+      value: 1.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 2564122445334696236, guid: 948787e677c38bd45be141573d8cbbc8, type: 3}
+      propertyPath: m_Radius
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2564122445334696236, guid: 948787e677c38bd45be141573d8cbbc8, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2564122445334696236, guid: 948787e677c38bd45be141573d8cbbc8, type: 3}
+      propertyPath: m_Center.x
+      value: -0.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 2564122445334696236, guid: 948787e677c38bd45be141573d8cbbc8, type: 3}
+      propertyPath: m_Center.y
+      value: -0.49
+      objectReference: {fileID: 0}
     - target: {fileID: 2648112343752457453, guid: 948787e677c38bd45be141573d8cbbc8, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1333,6 +1353,10 @@ PrefabInstance:
     - target: {fileID: 3925654834133611452, guid: 92e8e31411803ea4cb18a7d7219f9cb2, type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 3925654834133611452, guid: 92e8e31411803ea4cb18a7d7219f9cb2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6391383450429749231, guid: 92e8e31411803ea4cb18a7d7219f9cb2, type: 3}
       propertyPath: m_LocalPosition.x
