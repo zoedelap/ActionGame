@@ -26,7 +26,9 @@ public class KeyManager : MonoBehaviour
             print("entered key");
             numKeys++;
             Destroy(other.gameObject);
-        } else if (other.CompareTag("Door"))
+        }
+
+        if (other.CompareTag("Door"))
         {
             bool doorIsSpawning = other.GetComponent<EnemySpawner>().isSpawning;
             if (doorIsSpawning && numKeys > 0)
@@ -36,10 +38,6 @@ public class KeyManager : MonoBehaviour
                 numDoorsClosed++;
                 if (numDoorsClosed == numDoorsInLevel) GameOver();
             }
-        } else
-        {
-            // return here so we only update the GUI if it actually needs to be updated
-            return;
         }
 
         UpdateGUI();

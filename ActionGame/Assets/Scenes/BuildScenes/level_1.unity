@@ -1063,14 +1063,11 @@ PrefabInstance:
     - target: {fileID: 5851122508309838160, guid: 948787e677c38bd45be141573d8cbbc8, type: 3}
       propertyPath: speed
       value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 5851122508309838160, guid: 948787e677c38bd45be141573d8cbbc8, type: 3}
-      propertyPath: jumpForce
       value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 5851122508309838160, guid: 948787e677c38bd45be141573d8cbbc8, type: 3}
-      propertyPath: gravityScale
-      value: 1.5
+      propertyPath: jumpForce
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7213032852966632024, guid: 948787e677c38bd45be141573d8cbbc8, type: 3}
       propertyPath: m_LocalPosition.x
