@@ -57,7 +57,7 @@ public class EnemySpawner : MonoBehaviour
         }
 
         // reduce the amount of time before the next spawn, down to 1 second between spawns
-        spawnRate = Mathf.Max(1.0f, spawnRate * 0.95f);
+        spawnRate = Mathf.Max(1.0f, spawnRate * spawnDecreaseRate);
         Debug.Log("spawn rate: " + spawnRate);
 
         // wait the appropriate delay before spawning again
