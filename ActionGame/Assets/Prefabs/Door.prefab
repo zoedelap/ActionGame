@@ -55,7 +55,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1.5, z: 1}
+  m_Size: {x: 1, y: 1.5, z: 15}
   m_Center: {x: 0, y: -0.25, z: 0}
 --- !u!114 &4825226932740737338
 MonoBehaviour:
@@ -71,7 +71,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 3925654834133611452, guid: 92e8e31411803ea4cb18a7d7219f9cb2, type: 3}
   enemySpawnPoint: {fileID: 1201549477870905556}
-  spawnRate: 2
+  spawnDecreaseRate: 0.99
+  spawnRate: 6
   enemyTarget: {fileID: 0}
 --- !u!1 &5548042312669256411
 GameObject:
@@ -134,7 +135,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: d0ee165403a86f349a3ac6ae65db8d3d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -248,7 +249,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: d0ee165403a86f349a3ac6ae65db8d3d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
