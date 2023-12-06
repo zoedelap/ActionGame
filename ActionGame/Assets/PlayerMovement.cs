@@ -2,23 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class PlayerMovement : MonoBehaviour
 {
     // Start is called before the first frame update
 
     //check keyboard iinput multipy delta time with speed with keyboard character
     //fields
-    public Rigidbody rb;
+    private Rigidbody rb;
     public float speed = 2f;
     public float jumpForce = 2f;
-    public float distanceToCheck = 0.2f;
-    public float distToGround = 0.5f;
+    [SerializeField] private float distToGround = 0.5f;
+
+    [SerializeField] private float gravityScale = 1.0f;
 
     public Animator anim;
     public bool animatorIsGrounded = true;
-
-    private Vector3 prevPos;
-    
 
     //player.transform = deltatime * speed
     //get position, add speed * delta time
@@ -26,7 +25,6 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        prevPos = transform.position;
     }
 
     // Update is called once per frame
@@ -66,6 +64,12 @@ public class PlayerMovement : MonoBehaviour
             animatorIsGrounded = false;
             anim.SetBool("IsGrounded", animatorIsGrounded);
         }
+    }
+
+    private void FixedUpdate()
+    {
+        // apply a continuous downward force to make the jumps feel more realistic
+        rb.AddForce(Physics.gravity * (gravityScale - 1) * rb.mass);
     }
 
     private bool IsGrounded()
