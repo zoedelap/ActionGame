@@ -28,18 +28,23 @@ public class KeyManager : MonoBehaviour
             Destroy(other.gameObject);
         }
 
-        if (other.CompareTag("Door") && numKeys > 0)
+        if (other.CompareTag("Door"))
         {
-            other.gameObject.GetComponent<EnemySpawner>().isSpawning = false;
-            numKeys--;
-            numDoorsClosed++;
-            if (numDoorsClosed == numDoorsInLevel) GameOver();
+            bool doorIsSpawning = other.GetComponent<EnemySpawner>().isSpawning;
+            if (doorIsSpawning && numKeys > 0)
+            {
+                other.gameObject.GetComponent<EnemySpawner>().isSpawning = false;
+                numKeys--;
+                numDoorsClosed++;
+                if (numDoorsClosed == numDoorsInLevel) GameOver();
+            }
         }
 
         UpdateGUI();
     }
 
     private void UpdateGUI() {
+        Debug.Log("updated number of keys on screen");
         keyCounter.SetText("X" + numKeys); 
     }
 
