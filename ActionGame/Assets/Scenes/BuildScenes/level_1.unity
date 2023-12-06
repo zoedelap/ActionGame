@@ -39,6 +39,7 @@ RenderSettings:
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
   m_IndirectSpecularColor: {r: 0.4492994, g: 0.4961335, b: 0.5583047, a: 1}
+  m_IndirectSpecularColor: {r: 0.4492994, g: 0.4961335, b: 0.5583047, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1070,19 +1071,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5851122508309838160, guid: 948787e677c38bd45be141573d8cbbc8, type: 3}
       propertyPath: speed
-      value: 50
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 5851122508309838160, guid: 948787e677c38bd45be141573d8cbbc8, type: 3}
       propertyPath: jumpForce
-      value: 25
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 5851122508309838160, guid: 948787e677c38bd45be141573d8cbbc8, type: 3}
       propertyPath: gravityScale
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6540397658010371883, guid: 948787e677c38bd45be141573d8cbbc8, type: 3}
-      propertyPath: m_Layer
-      value: 10
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 7213032852966632024, guid: 948787e677c38bd45be141573d8cbbc8, type: 3}
       propertyPath: m_LocalPosition.x
