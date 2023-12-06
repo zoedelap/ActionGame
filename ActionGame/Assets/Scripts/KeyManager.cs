@@ -4,9 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class KeyManager : MonoBehaviour
 {
+    [SerializeField] private int numDoorsInLevel = 1; 
+    private int numDoorsClosed = 0;
+
     private int numKeys = 0;
     public TextMeshProUGUI keyCounter;
 
@@ -28,7 +32,8 @@ public class KeyManager : MonoBehaviour
         {
             other.gameObject.GetComponent<EnemySpawner>().isSpawning = false;
             numKeys--;
-            print("level complete");
+            numDoorsClosed++;
+            if (numDoorsClosed == numDoorsInLevel) GameOver();
         }
 
         UpdateGUI();
@@ -36,5 +41,9 @@ public class KeyManager : MonoBehaviour
 
     private void UpdateGUI() {
         keyCounter.SetText("X" + numKeys); 
+    }
+
+    private void GameOver() {
+        SceneManager.LoadScene("next_level");
     }
 }
