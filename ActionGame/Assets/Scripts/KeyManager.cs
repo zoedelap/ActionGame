@@ -3,15 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class KeyManager : MonoBehaviour
 {
-    private bool hasKey = false;
-    public Image uiIndicator;
+    private int numKeys = 0;
+    public TextMeshProUGUI keyCounter;
 
     void Start()
-    {
-        uiIndicator.enabled = false;    
+    {   
+        UpdateGUI();
     }
 
     void OnTriggerEnter(Collider other)
@@ -19,15 +20,21 @@ public class KeyManager : MonoBehaviour
         if (other.CompareTag("Key"))
         {
             print("entered key");
-            hasKey = true;
-            uiIndicator.enabled = true;
+            numKeys++;
             Destroy(other.gameObject);
         }
 
-        if (other.CompareTag("Door") && hasKey)
+        if (other.CompareTag("Door") && numKeys > 0)
         {
             other.gameObject.GetComponent<EnemySpawner>().isSpawning = false;
+            numKeys--;
             print("level complete");
         }
+
+        UpdateGUI();
+    }
+
+    private void UpdateGUI() {
+        keyCounter.SetText("X" + numKeys); 
     }
 }
