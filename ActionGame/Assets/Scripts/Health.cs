@@ -10,9 +10,14 @@ public class Health : MonoBehaviour
     public int maxHealth;
     public HealthBar healthBar;
 
+    [SerializeField] private int maxHealthRegenerationPerSecond = 25;
+    private int _healthRegenerationPerSecond = 0;
+    public int healthRegenerationPerSecond { get { return _healthRegenerationPerSecond;} set { _healthRegenerationPerSecond = Mathf.Min(value, maxHealthRegenerationPerSecond); } }
+
     void Start()
     {
         currHealth = maxHealth;
+        InvokeRepeating(nameof(RegenerateHealth), 0, 1.0f);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -37,5 +42,11 @@ public class Health : MonoBehaviour
     void KillPlayer()
     {
         SceneManager.LoadScene("game_over");
+    }
+
+    private void RegenerateHealth()
+    {
+        currHealth = Mathf.Min(maxHealth, currHealth + _healthRegenerationPerSecond);
+        healthBar.SetHealth(currHealth);
     }
 }
