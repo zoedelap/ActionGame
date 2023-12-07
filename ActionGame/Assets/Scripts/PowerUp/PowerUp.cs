@@ -21,11 +21,9 @@ public class PowerUp : MonoBehaviour
         // increase health regen
         Health playerHealthScript = player.GetComponent<Health>();
         if (playerHealthScript != null) playerHealthScript.healthRegenerationPerSecond += healthRegenBoost;
-        else Debug.LogWarning("Could not find Health script to increase health regeneration");
         // increase player speed
         PlayerMovement playerMovemementScript = player.GetComponent<PlayerMovement>();
         if (playerMovemementScript != null) playerMovemementScript.speed += speedBoost;
-        else Debug.LogWarning("Could not find PlayerMovement script to increase movement speed!");
         // destroy the power up
         Destroy(gameObject);
     }
