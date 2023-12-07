@@ -636,6 +636,18 @@ PrefabInstance:
       propertyPath: m_text
       value: Quit
       objectReference: {fileID: 0}
+    - target: {fileID: 789551363437300297, guid: 5d91dae2c95a14d738daeba79fcbeabf, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 87732847042f63644974d4d1abf207a2, type: 2}
+    - target: {fileID: 789551363437300297, guid: 5d91dae2c95a14d738daeba79fcbeabf, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 3614979744874758005, guid: 87732847042f63644974d4d1abf207a2, type: 2}
+    - target: {fileID: 789551363437300297, guid: 5d91dae2c95a14d738daeba79fcbeabf, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2407728308743945408, guid: 5d91dae2c95a14d738daeba79fcbeabf, type: 3}
       propertyPath: m_Name
       value: ButtonQuit
@@ -797,8 +809,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Barn Cat Game
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 87732847042f63644974d4d1abf207a2, type: 2}
+  m_sharedMaterial: {fileID: 3614979744874758005, guid: 87732847042f63644974d4d1abf207a2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1344,6 +1356,18 @@ PrefabInstance:
       propertyPath: m_text
       value: How to Play
       objectReference: {fileID: 0}
+    - target: {fileID: 789551363437300297, guid: 5d91dae2c95a14d738daeba79fcbeabf, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 87732847042f63644974d4d1abf207a2, type: 2}
+    - target: {fileID: 789551363437300297, guid: 5d91dae2c95a14d738daeba79fcbeabf, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 3614979744874758005, guid: 87732847042f63644974d4d1abf207a2, type: 2}
+    - target: {fileID: 789551363437300297, guid: 5d91dae2c95a14d738daeba79fcbeabf, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1743815255497227382, guid: 5d91dae2c95a14d738daeba79fcbeabf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -1485,6 +1509,18 @@ PrefabInstance:
     - target: {fileID: 789551363437300297, guid: 5d91dae2c95a14d738daeba79fcbeabf, type: 3}
       propertyPath: m_text
       value: Start
+      objectReference: {fileID: 0}
+    - target: {fileID: 789551363437300297, guid: 5d91dae2c95a14d738daeba79fcbeabf, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 87732847042f63644974d4d1abf207a2, type: 2}
+    - target: {fileID: 789551363437300297, guid: 5d91dae2c95a14d738daeba79fcbeabf, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 3614979744874758005, guid: 87732847042f63644974d4d1abf207a2, type: 2}
+    - target: {fileID: 789551363437300297, guid: 5d91dae2c95a14d738daeba79fcbeabf, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1743815255497227382, guid: 5d91dae2c95a14d738daeba79fcbeabf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
