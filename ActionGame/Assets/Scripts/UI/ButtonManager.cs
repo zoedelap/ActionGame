@@ -8,12 +8,8 @@ public class ButtonManager : MonoBehaviour
 {
     public GameObject instructionsPanel;
     public GameObject pausePanel;
+    public GameObject creditsPanel;
     public Button pauseButton;
-
-    public void StartGame()
-    {
-        SceneManager.LoadScene("GameScene");
-    }
 
     public void GoToScene(string sceneName)
     {
@@ -27,6 +23,16 @@ public class ButtonManager : MonoBehaviour
     public void HideInstructions()
     {
         instructionsPanel.SetActive(false);
+    }
+
+    public void ShowCredits()
+    {
+        creditsPanel.SetActive(true);
+    }
+
+    public void HideCredits()
+    {
+        creditsPanel.SetActive(false);
     }
 
     public void PauseGame()
