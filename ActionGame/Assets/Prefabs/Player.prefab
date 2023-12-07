@@ -110,11 +110,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382d36d4de462b048a788475495e0ee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 6370184888860525377}
-  speed: 100
-  jumpForce: 7
-  distanceToCheck: 0.2
+  speed: 40
+  jumpForce: 75
   distToGround: 1
+  gravityScale: 1.25
   anim: {fileID: 3002673583252306920}
   animatorIsGrounded: 1
 --- !u!114 &1160328091142357940
@@ -150,6 +149,7 @@ MonoBehaviour:
   currHealth: 0
   maxHealth: 100
   healthBar: {fileID: 0}
+  maxHealthRegenerationPerSecond: 1
 --- !u!114 &4239787197670956081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,6 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45a809813a5ae294f88a6ef371ca3fb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numDoorsInLevel: 3
   keyCounter: {fileID: 0}
 --- !u!1 &6540397658010371883
 GameObject:
