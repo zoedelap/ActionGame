@@ -19,8 +19,9 @@ public class PlayerMovement : MonoBehaviour
     public Animator anim;
     public bool animatorIsGrounded = true;
 
-    //player.transform = deltatime * speed
-    //get position, add speed * delta time
+    // time to wait before allowing the player to jump again
+    [SerializeField] private float jumpCooldown = 0.5f;
+    private bool _jumpingIsEnabled = true;
 
     void Start()
     {
@@ -31,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         // if the animation state says player is not grounded but they actually are
-        if (!animatorIsGrounded && IsGrounded())
+        if (!animatorIsGrounded && _jumpingIsEnabled && IsGrounded())
         {
             animatorIsGrounded = true;
             anim.SetBool("IsGrounded", animatorIsGrounded);
@@ -56,14 +57,19 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //Jumping
-        if ((Input.GetKey("up") || Input.GetKey("w") || Input.GetKey(KeyCode.Space)) && IsGrounded())
+        if ((Input.GetKeyDown("up") || Input.GetKeyDown("w") || Input.GetKeyDown(KeyCode.Space)) && _jumpingIsEnabled && IsGrounded())
         {
             //found on Unity's Documentation v.2022.3
-            rb.AddForce(transform.up * jumpForce);
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+
+            // activate the cooldown
+            _jumpingIsEnabled = false;
+            Invoke(nameof(ReenableJumping), jumpCooldown);
+
             // tell the animator that the player is not grounded
             animatorIsGrounded = false;
             anim.SetBool("IsGrounded", animatorIsGrounded);
-        }
+        } 
     }
 
     private void FixedUpdate()
@@ -77,5 +83,8 @@ public class PlayerMovement : MonoBehaviour
         return Physics.Raycast(transform.position, -Vector3.up, distToGround + 0.1f);
     }
 
-    
+    private void ReenableJumping()
+    {
+        _jumpingIsEnabled = true;
+    }
 }

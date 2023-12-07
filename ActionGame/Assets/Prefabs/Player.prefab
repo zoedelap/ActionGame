@@ -110,10 +110,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382d36d4de462b048a788475495e0ee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 40
-  jumpForce: 75
+  speed: 50
+  jumpForce: 6
   distToGround: 1
-  gravityScale: 1.25
+  gravityScale: 1.5
   anim: {fileID: 3002673583252306920}
   animatorIsGrounded: 1
 --- !u!114 &1160328091142357940
