@@ -15,6 +15,8 @@ public class EnemySpawner : MonoBehaviour
 
     public Transform enemyTarget;
 
+    private Renderer[] doorRenderers; 
+
     public bool isSpawning
     {
         get {  return ( _isSpawning ); }
@@ -26,6 +28,7 @@ public class EnemySpawner : MonoBehaviour
                 SpawnEnemy();
             }
             _isSpawning = value;
+            UpdateMaterial();
         }
     }
 
@@ -33,6 +36,8 @@ public class EnemySpawner : MonoBehaviour
     {
         // start spawning if set to spawn by default
         if (_isSpawning) Invoke(nameof(SpawnEnemy), Random.Range(0, 2.0f));
+        doorRenderers = GetComponentsInChildren<Renderer>();
+        UpdateMaterial();
     }
 
     private void SpawnEnemy()
@@ -62,5 +67,16 @@ public class EnemySpawner : MonoBehaviour
 
         // wait the appropriate delay before spawning again
         Invoke(nameof(SpawnEnemy), spawnRate);
+    }
+
+    private void UpdateMaterial()
+    {
+        Color color = new Color(0.4056604f, 0.2324893f, 0.05931826f, 1.0f);
+        if (_isSpawning) color = Color.black;
+        foreach (Renderer renderer in doorRenderers)
+        {
+            renderer.material.SetColor("_Color", color);
+        }
+
     }
 }
