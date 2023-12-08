@@ -8,6 +8,7 @@ TagManager:
   - Door
   - Key
   - Weapon
+  - PowerUp
   layers:
   - Default
   - TransparentFX
