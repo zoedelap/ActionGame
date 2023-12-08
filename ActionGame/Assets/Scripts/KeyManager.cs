@@ -32,6 +32,7 @@ public class KeyManager : MonoBehaviour
         } else if (other.CompareTag("Door"))
         {
             bool doorIsSpawning = other.GetComponent<EnemySpawner>().isSpawning;
+            // if the door is open and we have a key to close it
             if (doorIsSpawning && numKeys > 0)
             {
                 other.gameObject.GetComponent<EnemySpawner>().isSpawning = false;
