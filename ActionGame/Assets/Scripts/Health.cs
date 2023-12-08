@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 public class Health : MonoBehaviour
 {
     [Header("Health Settings")]
-    public int currHealth;
+    private int _currHealth;
+    public int currHealth { get { return _currHealth; } set { _currHealth = value; healthBar.SetHealth(_currHealth); } }
     public int maxHealth;
     public HealthBar healthBar;
 
@@ -32,7 +33,6 @@ public class Health : MonoBehaviour
     void DamagePlayer(int dmg)
     {
         currHealth -= dmg;
-        healthBar.SetHealth(currHealth);
         if (currHealth <= 0) 
         { 
             KillPlayer();
