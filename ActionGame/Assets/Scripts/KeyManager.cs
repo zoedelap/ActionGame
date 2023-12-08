@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class KeyManager : MonoBehaviour
 {
-    [SerializeField] private int numDoorsInLevel = 1;
+    private int numDoorsInLevel = 1; 
     private int numDoorsClosed = 0;
 
     private int numKeys = 0;
@@ -16,6 +16,9 @@ public class KeyManager : MonoBehaviour
     public GameObject nextLevelPanel; // in the future this should be moved to a designated game state manager and include the gameOverPanel object seen in Health.cs
     void Start()
     {
+        GameObject[] doors = GameObject.FindGameObjectsWithTag("Door");
+        numDoorsInLevel = doors.Length;
+        Debug.Log(numDoorsInLevel + " doors in level");
         UpdateGUI();
     }
 

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4824785868050457465}
   - component: {fileID: 6672121496854904477}
   - component: {fileID: 4825226932740737338}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Door
   m_TagString: Door
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 3925654834133611452, guid: 92e8e31411803ea4cb18a7d7219f9cb2, type: 3}
   enemySpawnPoint: {fileID: 1201549477870905556}
   spawnDecreaseRate: 0.99
-  spawnRate: 6
+  spawnRate: 9
   enemyTarget: {fileID: 0}
 --- !u!1 &5548042312669256411
 GameObject:
@@ -85,7 +85,7 @@ GameObject:
   - component: {fileID: 3485888648883188102}
   - component: {fileID: 7755663497672786801}
   - component: {fileID: 1367080450583291957}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -166,7 +166,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1201549477870905556}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: EnemySpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -199,7 +199,7 @@ GameObject:
   - component: {fileID: 3314756028791722174}
   - component: {fileID: 5091675746195157758}
   - component: {fileID: 7983206079536120870}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
