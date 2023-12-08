@@ -14,6 +14,9 @@ public class KeyManager : MonoBehaviour
     private int numKeys = 0;
     public TextMeshProUGUI keyCounter;
 
+    [Header("Next Level Settings")]
+    public string nextLevelSceneName = "next_level";
+
     void Start()
     {
         GameObject[] doors = GameObject.FindGameObjectsWithTag("Door");
@@ -55,6 +58,6 @@ public class KeyManager : MonoBehaviour
     }
 
     private void GameOver() {
-        SceneManager.LoadScene("next_level");
+        SceneManager.LoadScene(nextLevelSceneName);
     }
 }

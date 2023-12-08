@@ -29,6 +29,9 @@ public class Health : MonoBehaviour
     [SerializeField] private float powerUpSpawningCooldown = 5.0f;
     private Queue<GameObject> powerUpQueue = new Queue<GameObject>();
     private bool powerUpSpawningIsEnabled = true;
+
+    [Header("Game Over Settings")]
+    public string gameOverSceneName = "game_over";
     
 
     void Start()
@@ -60,7 +63,7 @@ public class Health : MonoBehaviour
 
     void KillPlayer()
     {
-        SceneManager.LoadScene("game_over");
+        SceneManager.LoadScene(gameOverSceneName);
     }
 
     private void RegenerateHealth()
