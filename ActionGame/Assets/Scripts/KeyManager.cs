@@ -8,14 +8,17 @@ using UnityEngine.SceneManagement;
 
 public class KeyManager : MonoBehaviour
 {
-    [SerializeField] private int numDoorsInLevel = 1; 
+    private int numDoorsInLevel = 1; 
     private int numDoorsClosed = 0;
 
     private int numKeys = 0;
     public TextMeshProUGUI keyCounter;
 
     void Start()
-    {   
+    {
+        GameObject[] doors = GameObject.FindGameObjectsWithTag("Door");
+        numDoorsInLevel = doors.Length;
+        Debug.Log(numDoorsInLevel + " doors in level");
         UpdateGUI();
     }
 

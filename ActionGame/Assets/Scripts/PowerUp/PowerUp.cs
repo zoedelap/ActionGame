@@ -5,6 +5,7 @@ using UnityEngine;
 public class PowerUp : MonoBehaviour
 {
     [SerializeField] private int speedBoost = 5;
+    [SerializeField] private float jumpAmountBoost = 0.25f;
     [SerializeField] private int healthRegenBoost = 1;
 
     private void OnTriggerEnter(Collider other)
@@ -23,8 +24,11 @@ public class PowerUp : MonoBehaviour
         if (playerHealthScript != null) playerHealthScript.healthRegenerationPerSecond += healthRegenBoost;
         else Debug.LogWarning("Could not find Health script to increase health regeneration");
         // increase player speed
-        PlayerMovement playerMovemementScript = player.GetComponent<PlayerMovement>();
-        if (playerMovemementScript != null) playerMovemementScript.speed += speedBoost;
+        PlayerMovement playerMovementScript = player.GetComponent<PlayerMovement>();
+        if (playerMovementScript != null) { 
+            playerMovementScript.speed += speedBoost; 
+            playerMovementScript.jumpForce += jumpAmountBoost;
+        }
         else Debug.LogWarning("Could not find PlayerMovement script to increase movement speed!");
         // destroy the power up
         Destroy(gameObject);
