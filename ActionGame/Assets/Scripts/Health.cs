@@ -1,29 +1,48 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
     [Header("Health Settings")]
     private int _currHealth;
-    public int currHealth { get { return _currHealth; } set { _currHealth = value; healthBar.SetHealth(_currHealth); } }
-    public int maxHealth;
+    public int currHealth { 
+        get { return _currHealth; } 
+        set { 
+            _currHealth = value; 
+            healthBar.SetHealth(_currHealth);
+            if (_currHealth < lowHealthThreshold) EnableAPowerUp();
+        } 
+    }
+    public int maxHealth = 100;
     public HealthBar healthBar;
 
     [SerializeField] private int maxHealthRegenerationPerSecond = 25;
     private int _healthRegenerationPerSecond = 0;
     public int healthRegenerationPerSecond { get { return _healthRegenerationPerSecond;} set { _healthRegenerationPerSecond = Mathf.Min(value, maxHealthRegenerationPerSecond); } }
 
+    [Header("Power Up Assistance Settings")]
+    [SerializeField] private GameObject[] powerUpsToEnableOnLowHealth;
+    [SerializeField] private int lowHealthThreshold = 25;
+    [SerializeField] private float powerUpSpawningCooldown = 5.0f;
+    private Queue<GameObject> powerUpQueue = new Queue<GameObject>();
+    private bool powerUpSpawningIsEnabled = true;
+    
+
     void Start()
     {
         currHealth = maxHealth;
         InvokeRepeating(nameof(RegenerateHealth), 0, 1.0f);
+        foreach (GameObject powerUp in powerUpsToEnableOnLowHealth)
+        {
+            powerUpQueue.Enqueue(powerUp);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("collided with object with tag: " + collision.gameObject.tag);
         if (collision.gameObject.CompareTag("Enemy"))
         {
             DamagePlayer(10);
@@ -49,4 +68,17 @@ public class Health : MonoBehaviour
         currHealth = Mathf.Min(maxHealth, currHealth + _healthRegenerationPerSecond);
         healthBar.SetHealth(currHealth);
     }
+
+    private void EnableAPowerUp()
+    {
+        Debug.Log("low health, attempting to enable a power up");
+        if (powerUpSpawningIsEnabled && powerUpQueue.Count > 0)
+        {
+            powerUpQueue.Dequeue().SetActive(true);
+            powerUpSpawningIsEnabled = false;
+            Invoke(nameof(EndPowerUpCooldown), powerUpSpawningCooldown);
+        }
+    }
+
+    private void EndPowerUpCooldown() { powerUpSpawningIsEnabled = true; }
 }

@@ -7,6 +7,7 @@ public class PowerUp : MonoBehaviour
     [SerializeField] private int speedBoost = 5;
     [SerializeField] private float jumpAmountBoost = 0.25f;
     [SerializeField] private int healthRegenBoost = 1;
+    [SerializeField] private int immediateHealthBoost = 0;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -21,7 +22,11 @@ public class PowerUp : MonoBehaviour
         Debug.Log("Power up picked up!");
         // increase health regen
         Health playerHealthScript = player.GetComponent<Health>();
-        if (playerHealthScript != null) playerHealthScript.healthRegenerationPerSecond += healthRegenBoost;
+        if (playerHealthScript != null)
+        {
+            playerHealthScript.healthRegenerationPerSecond += healthRegenBoost;
+            playerHealthScript.currHealth += immediateHealthBoost;
+        }
         else Debug.LogWarning("Could not find Health script to increase health regeneration");
         // increase player speed
         PlayerMovement playerMovementScript = player.GetComponent<PlayerMovement>();
