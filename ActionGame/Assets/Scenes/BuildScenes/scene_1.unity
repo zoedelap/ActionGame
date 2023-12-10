@@ -256,8 +256,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1270332660}
         m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
-        m_MethodName: GoToScene
-        m_Mode: 5
+        m_MethodName: GoToMenu
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1098,8 +1098,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1270332660}
         m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
-        m_MethodName: GoToScene
-        m_Mode: 5
+        m_MethodName: GoToMenu
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1607,11 +1607,11 @@ PrefabInstance:
       objectReference: {fileID: 113213721}
     - target: {fileID: 5851122508309838160, guid: 948787e677c38bd45be141573d8cbbc8, type: 3}
       propertyPath: speed
-      value: 50
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 5851122508309838160, guid: 948787e677c38bd45be141573d8cbbc8, type: 3}
       propertyPath: jumpForce
-      value: 50
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 5851122508309838160, guid: 948787e677c38bd45be141573d8cbbc8, type: 3}
       propertyPath: gravityScale
@@ -2749,6 +2749,8 @@ MonoBehaviour:
   pausePanel: {fileID: 96257178}
   creditsPanel: {fileID: 0}
   pauseButton: {fileID: 2024285808}
+  reloadButton: {fileID: 1405119878}
+  menuButton: {fileID: 2101439687}
 --- !u!4 &1270332661
 Transform:
   m_ObjectHideFlags: 0
@@ -4507,8 +4509,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1270332660}
         m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
-        m_MethodName: GoToScene
-        m_Mode: 5
+        m_MethodName: GoToMenu
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
