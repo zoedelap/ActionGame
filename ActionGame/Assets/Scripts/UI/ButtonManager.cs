@@ -51,7 +51,23 @@ public class ButtonManager : MonoBehaviour
 
     public void RestartGame()
     {
-        SceneManager.LoadScene("level_1");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1;
+    }
+
+    public void NextLevel()
+    {
+        if (SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            Time.timeScale = 1;
+            SceneManager.LoadScene(0);
+        }
+        else
+        {
+            Time.timeScale = 1;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+
     }
 
     public void QuitGame()

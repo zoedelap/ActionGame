@@ -12,7 +12,8 @@ public class Health : MonoBehaviour
 
     [SerializeField] private int maxHealthRegenerationPerSecond = 25;
     private int _healthRegenerationPerSecond = 0;
-    public int healthRegenerationPerSecond { get { return _healthRegenerationPerSecond;} set { _healthRegenerationPerSecond = Mathf.Min(value, maxHealthRegenerationPerSecond); } }
+    public int healthRegenerationPerSecond { get { return _healthRegenerationPerSecond; } set { _healthRegenerationPerSecond = Mathf.Min(value, maxHealthRegenerationPerSecond); } }
+    public GameObject gameOverPanel; // in future this should be moved to a designated game state manager and include the nextLevelPanel object seen in KeyManager.cs
 
     void Start()
     {
@@ -33,15 +34,17 @@ public class Health : MonoBehaviour
     {
         currHealth -= dmg;
         healthBar.SetHealth(currHealth);
-        if (currHealth <= 0) 
-        { 
+        if (currHealth <= 0)
+        {
             KillPlayer();
         }
     }
 
     void KillPlayer()
     {
-        SceneManager.LoadScene("game_over");
+        // SceneManager.LoadScene("game_over");
+        Time.timeScale = 0;
+        gameOverPanel.SetActive(true);
     }
 
     private void RegenerateHealth()
