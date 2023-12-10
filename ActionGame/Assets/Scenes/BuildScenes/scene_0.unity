@@ -156,6 +156,8 @@ MonoBehaviour:
   pausePanel: {fileID: 0}
   creditsPanel: {fileID: 323699613}
   pauseButton: {fileID: 0}
+  reloadButton: {fileID: 0}
+  menuButton: {fileID: 0}
 --- !u!4 &63743762
 Transform:
   m_ObjectHideFlags: 0
@@ -2025,7 +2027,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1961163430
 MonoBehaviour:
   m_ObjectHideFlags: 0
