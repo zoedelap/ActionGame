@@ -110,10 +110,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382d36d4de462b048a788475495e0ee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 30
+  speed: 5
   jumpForce: 7
   distToGround: 1
   gravityScale: 1.5
+  isPaused: 0
   anim: {fileID: 3002673583252306920}
   animatorIsGrounded: 1
   jumpCooldown: 0.5
@@ -147,11 +148,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86e38c968fe2a4a48b0503c14d7d74d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currHealth: 0
   maxHealth: 100
   healthBar: {fileID: 0}
   maxHealthRegenerationPerSecond: 1
   gameOverPanel: {fileID: 0}
+  powerUpsToEnableOnLowHealth: []
+  lowHealthThreshold: 25
+  powerUpSpawningCooldown: 5
 --- !u!114 &4239787197670956081
 MonoBehaviour:
   m_ObjectHideFlags: 0

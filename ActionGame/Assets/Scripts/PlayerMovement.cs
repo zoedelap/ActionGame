@@ -16,6 +16,8 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private float gravityScale = 1.0f;
 
+    public bool isPaused = false;
+
     public Animator anim;
     public bool animatorIsGrounded = true;
 
@@ -31,6 +33,9 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // don't allow player to do anything if they're paused
+        if (isPaused) return;
+
         // if the animation state says player is not grounded but they actually are
         if (!animatorIsGrounded && _jumpingIsEnabled && IsGrounded())
         {

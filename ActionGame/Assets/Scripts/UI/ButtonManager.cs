@@ -11,6 +11,8 @@ public class ButtonManager : MonoBehaviour
     public GameObject creditsPanel;
     public Button pauseButton, reloadButton, menuButton;
 
+    public PlayerMovement playerMovement;
+
     public void GoToMenu()
     {
         SceneManager.LoadScene(0);
@@ -39,6 +41,8 @@ public class ButtonManager : MonoBehaviour
     public void PauseGame()
     {
         Time.timeScale = 0;
+        if (playerMovement != null) playerMovement.isPaused = true;
+        else Debug.LogWarning("playerMovement script not assigned to button manager!");
         pausePanel.SetActive(true);
         pauseButton.interactable = false;
         menuButton.interactable = false;
@@ -48,6 +52,8 @@ public class ButtonManager : MonoBehaviour
     public void ResumeGame()
     {
         Time.timeScale = 1;
+        if (playerMovement != null) playerMovement.isPaused = false;
+        else Debug.LogWarning("playerMovement script not assigned to button manager!");
         pausePanel.SetActive(false);
         pauseButton.interactable = true;
         menuButton.interactable = true;

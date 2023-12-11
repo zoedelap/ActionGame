@@ -1301,10 +1301,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -1621,18 +1621,6 @@ PrefabInstance:
       propertyPath: nextLevelPanel
       value: 
       objectReference: {fileID: 113213721}
-    - target: {fileID: 5851122508309838160, guid: 948787e677c38bd45be141573d8cbbc8, type: 3}
-      propertyPath: speed
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 5851122508309838160, guid: 948787e677c38bd45be141573d8cbbc8, type: 3}
-      propertyPath: jumpForce
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5851122508309838160, guid: 948787e677c38bd45be141573d8cbbc8, type: 3}
-      propertyPath: gravityScale
-      value: 1.5
-      objectReference: {fileID: 0}
     - target: {fileID: 7213032852966632024, guid: 948787e677c38bd45be141573d8cbbc8, type: 3}
       propertyPath: m_LocalPosition.x
       value: -16.6
@@ -1683,6 +1671,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7213032852966632024, guid: 948787e677c38bd45be141573d8cbbc8, type: 3}
   m_PrefabInstance: {fileID: 631986231}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &631986233 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5851122508309838160, guid: 948787e677c38bd45be141573d8cbbc8, type: 3}
+  m_PrefabInstance: {fileID: 631986231}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 382d36d4de462b048a788475495e0ee7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &646187346
 GameObject:
   m_ObjectHideFlags: 0
@@ -2767,6 +2766,7 @@ MonoBehaviour:
   pauseButton: {fileID: 2024285808}
   reloadButton: {fileID: 1405119878}
   menuButton: {fileID: 2101439687}
+  playerMovement: {fileID: 631986233}
 --- !u!4 &1270332661
 Transform:
   m_ObjectHideFlags: 0
